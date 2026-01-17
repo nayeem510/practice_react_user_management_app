@@ -23,7 +23,7 @@ const NewUser = () => {
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <input type='text' name='username' value={username} onChange={handleUserNameChange} />
+        <input type='text' name='username' value={username} onChange={handleUserNameChange} placeholder="Enter user name" required />
         <button className='addButton'>Add User</button>
       </form>
     </>
