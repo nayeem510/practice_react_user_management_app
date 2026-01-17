@@ -1,17 +1,16 @@
 import React from 'react';
 
 import User from './User';
-import { v4 as uuidv4 } from 'uuid';
 import { useUsersContext } from '../hooks/useUsersContext';
 
 const Users = () => {
 
-  const {users} = useUsersContext();
+  const {state} = useUsersContext();
 
   return (
     <section className='users'>
-        {users.map((user) => (
-            <User key={uuidv4()} user={user} />
+        {state.users.map((user) => (
+            <User key={user.id} user={user} />
         ))}
     </section>
   )

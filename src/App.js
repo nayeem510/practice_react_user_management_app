@@ -1,21 +1,16 @@
-import React, {useState} from 'react';
+import React, {useState, useReducer} from 'react';
 
-import { v4 as uuidv4 } from 'uuid';
 import Users from './components/Users';
 import NewUser from './components/NewUser';
 import { UsersContext } from './context/UsersContext';
-
-const usersData = [
-    {id: uuidv4(), userName: "Nayeem Ahmed"},
-    {id: uuidv4(), userName: "Md. Emon"}
-]
+import { initialState, reducer } from './reducer/usersReducer';
 
 const App = () => {
 
-    const [users, setUsers] = useState(usersData);
+  const [state, dispatch] = useReducer(reducer, initialState);
 
   return (
-    <UsersContext.Provider value={{users, setUsers}}>
+    <UsersContext.Provider value={{state, dispatch}}>
       <>
         <h1>User Management App</h1>
 

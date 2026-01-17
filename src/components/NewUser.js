@@ -5,7 +5,7 @@ import { useUsersContext } from '../hooks/useUsersContext';
 
 const NewUser = () => {
 
-  const {setUsers} = useUsersContext()
+  const {state, dispatch} = useUsersContext()
 
   const [username, setUsername] = useState("");
 
@@ -15,8 +15,11 @@ const NewUser = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const newUser = {id: uuidv4(), userName: username};
-    setUsers((prevUsers) => [...prevUsers, newUser])
+    const newUser = {
+      id: uuidv4(), 
+      userName: username
+    };
+    dispatch({type: "ADD_USER", payload: newUser.userName})
     setUsername("");
   }
 

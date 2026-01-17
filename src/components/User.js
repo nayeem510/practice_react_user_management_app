@@ -6,11 +6,10 @@ const User = ({user}) => {
 
     const {id, userName} = user;
 
-    const {users, setUsers} = useUsersContext();
+    const {state, dispatch} = useUsersContext();
 
     const handleDelete = (id) => {
-        const filteredUsers = users.filter(user => user.id !== id );
-        setUsers(filteredUsers);
+        dispatch({type: "DELETE_USER", payload: id})
     }
 
   return (
