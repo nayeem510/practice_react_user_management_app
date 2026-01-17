@@ -6,7 +6,7 @@ const User = ({user}) => {
 
     const {id, userName} = user;
 
-    const {state, dispatch} = useUsersContext();
+    const {dispatch} = useUsersContext();
 
     const handleDelete = (id) => {
         dispatch({type: "DELETE_USER", payload: id})

@@ -1,4 +1,4 @@
-import React, {useState, useReducer} from 'react';
+import React, {useReducer} from 'react';
 
 import Users from './components/Users';
 import NewUser from './components/NewUser';

@@ -8,7 +8,6 @@ export const initialState = {
 export const reducer = (state, action) => {
     switch (action.type) {
         case "ADD_USER":
-            console.log(action.payload)
             return {
                 ...state,
                 users: [

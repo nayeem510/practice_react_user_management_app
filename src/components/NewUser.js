@@ -5,7 +5,7 @@ import { useUsersContext } from '../hooks/useUsersContext';
 
 const NewUser = () => {
 
-  const {state, dispatch} = useUsersContext()
+  const {dispatch} = useUsersContext()
 
   const [username, setUsername] = useState("");
 
