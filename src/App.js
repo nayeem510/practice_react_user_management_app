@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from 'react';
 
-function App() {
+import { v4 as uuidv4 } from 'uuid';
+import Users from './components/Users';
+import NewUser from './components/NewUser';
+import { UsersContext } from './context/UsersContext';
+
+const usersData = [
+    {id: uuidv4(), userName: "Nayeem Ahmed"},
+    {id: uuidv4(), userName: "Md. Emon"}
+]
+
+const App = () => {
+
+    const [users, setUsers] = useState(usersData);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <UsersContext.Provider value={{users, setUsers}}>
+      <>
+        <h1>User Management App</h1>
+
+        <NewUser />
+        <Users />
+      </>
+    </UsersContext.Provider>
+  )
 }
 
 export default App;
